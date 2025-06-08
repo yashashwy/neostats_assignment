@@ -1,0 +1,2159 @@
+2025-06-08 16:48:19 [INFO] Question: What is the number of good and bad loans
+2025-06-08 16:48:19 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 16:48:19 [INFO] Prompt ID: 0f206f4a-5e06-4c32-900f-f337b28fe59e
+2025-06-08 16:48:19 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 16:48:19 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 16:48:19 [INFO] Executing Step 1: CacheLookup
+2025-06-08 16:48:19 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 16:48:19 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-NZrdcZ,Bad,No,415364,14,93,13599866.79044587,,Top Up,Secured,Society,X,Washington,West Eric,,Chairman,,,SEMIU,54,2625102.056694056
+sdv-id-GXZiml,Bad,No,2891979,14,80,18980733.9627766,Average Bank Balance,Fresh,Unsecured,Private Limited Company,c,Idaho,East Jenniferport,Secretary,,656.0,728.0,RURAL,6,
+sdv-id-xUgsmj,Good,Yes,4016903,14,79,,Finance Audits,Top Up,Others,Public Limited Company,k,Georgia,,Managing Trustee,Vice President,217.0,332.0,URBAN,48,17355077.02968083
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ What is the number of good and bad loans
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 16:48:19 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 16:48:22 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 16:48:22 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-NZrdcZ,Bad,No,415364,14,93,13599866.79044587,,Top Up,Secured,Society,X,Washington,West Eric,,Chairman,,,SEMIU,54,2625102.056694056
+sdv-id-GXZiml,Bad,No,2891979,14,80,18980733.9627766,Average Bank Balance,Fresh,Unsecured,Private Limited Company,c,Idaho,East Jenniferport,Secretary,,656.0,728.0,RURAL,6,
+sdv-id-xUgsmj,Good,Yes,4016903,14,79,,Finance Audits,Top Up,Others,Public Limited Company,k,Georgia,,Managing Trustee,Vice President,217.0,332.0,URBAN,48,17355077.02968083
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ What is the number of good and bad loans
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 16:48:22 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+# Variable `dfs` is already declared and contains a list of DataFrames.
+# Extract the first DataFrame from the list
+df = dfs[0]
+
+# Count the number of good and bad loans
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+
+# Prepare the result dictionary
+result = {
+    "type": "dataframe",
+    "value": pd.DataFrame({
+        "Loan Type": loan_counts.index,
+        "Count": loan_counts.values
+    })
+}
+            ```
+            
+2025-06-08 16:48:22 [INFO] Executing Step 4: CachePopulation
+2025-06-08 16:48:22 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 16:48:22 [INFO] 
+Code running:
+```
+df = dfs[0]
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+result = {'type': 'dataframe', 'value': pd.DataFrame({'Loan Type': loan_counts.index, 'Count': loan_counts.values})}
+        ```
+2025-06-08 16:48:22 [INFO] Executing Step 6: CodeExecution
+2025-06-08 16:48:22 [INFO] Executing Step 7: ResultValidation
+2025-06-08 16:48:22 [INFO] Answer: {'type': 'dataframe', 'value':   Loan Type  Count
+0       Bad   3134
+1      Good   2866}
+2025-06-08 16:48:22 [INFO] Executing Step 8: ResultParsing
+2025-06-08 16:49:00 [INFO] Question: What is the number of good and bad loans
+2025-06-08 16:49:00 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 16:49:00 [INFO] Prompt ID: ba379cba-2659-4e84-8c3c-5cb8264c3562
+2025-06-08 16:49:00 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 16:49:00 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 16:49:00 [INFO] Executing Step 1: CacheLookup
+2025-06-08 16:49:00 [INFO] Using cached response
+2025-06-08 16:49:00 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 16:49:00 [INFO] Executing Step 2: Skipping...
+2025-06-08 16:49:00 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 16:49:00 [INFO] Executing Step 3: Skipping...
+2025-06-08 16:49:00 [INFO] Executing Step 4: CachePopulation
+2025-06-08 16:49:00 [INFO] Executing Step 4: Skipping...
+2025-06-08 16:49:00 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 16:49:00 [INFO] 
+Code running:
+```
+df = dfs[0]
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+result = {'type': 'dataframe', 'value': pd.DataFrame({'Loan Type': loan_counts.index, 'Count': loan_counts.values})}
+        ```
+2025-06-08 16:49:00 [INFO] Executing Step 6: CodeExecution
+2025-06-08 16:49:00 [INFO] Executing Step 7: ResultValidation
+2025-06-08 16:49:00 [INFO] Answer: {'type': 'dataframe', 'value':   Loan Type  Count
+0       Bad   3134
+1      Good   2866}
+2025-06-08 16:49:00 [INFO] Executing Step 8: ResultParsing
+2025-06-08 16:49:29 [INFO] Question: Give me a histogram for good and bad loans
+
+2025-06-08 16:49:29 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 16:49:29 [INFO] Prompt ID: 22984553-d3b2-4a4c-8ecb-a3401f64741f
+2025-06-08 16:49:29 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 16:49:29 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 16:49:29 [INFO] Executing Step 1: CacheLookup
+2025-06-08 16:49:29 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 16:49:29 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-TOJfIc,Good,No,7169,14,69,27335121.99728694,,Fresh,Secured,Public Limited Company,Z,Florida,Lake Sean,Others,Trustee,,,URBAN,17,
+sdv-id-FVYxbL,Bad,Yes,5107111,14,54,17182530.05036454,Finance Audits,Top Up,Unsecured,Partnership / LLP,H,Mississippi,,,,218.0,651.0,RURAL,68,3919.278762687329
+sdv-id-nExZDk,Good,Yes,1213291,14,19,,Average Bank Balance,Top Up,Others,Society,F,New Mexico,Shawnborough,Correspondent,Secretary,819.0,584.0,SEMIU,33,9433892.762097877
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a histogram for good and bad loans
+
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 16:49:29 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 16:49:32 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 16:49:32 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-TOJfIc,Good,No,7169,14,69,27335121.99728694,,Fresh,Secured,Public Limited Company,Z,Florida,Lake Sean,Others,Trustee,,,URBAN,17,
+sdv-id-FVYxbL,Bad,Yes,5107111,14,54,17182530.05036454,Finance Audits,Top Up,Unsecured,Partnership / LLP,H,Mississippi,,,,218.0,651.0,RURAL,68,3919.278762687329
+sdv-id-nExZDk,Good,Yes,1213291,14,19,,Average Bank Balance,Top Up,Others,Society,F,New Mexico,Shawnborough,Correspondent,Secretary,819.0,584.0,SEMIU,33,9433892.762097877
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a histogram for good and bad loans
+
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 16:49:32 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+
+# Extract the dataframe from the list
+df = dfs[0]
+
+# Create a histogram for good and bad loans
+plt.figure(figsize=(8, 6))
+df['GOOD/BAD LOAN'].value_counts().plot(kind='bar', color=['green', 'red'], alpha=0.7)
+plt.title('Histogram of Good and Bad Loans')
+plt.xlabel('Loan Type')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Save the plot as a PNG file
+chart_path = "good_bad_loans_histogram.png"
+plt.savefig(chart_path)
+plt.close()
+
+# Declare result variable
+result = { "type": "plot", "value": chart_path }
+            ```
+            
+2025-06-08 16:49:32 [INFO] Executing Step 4: CachePopulation
+2025-06-08 16:49:32 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 16:49:32 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 16:49:32 [INFO] 
+Code running:
+```
+df = dfs[0]
+plt.figure(figsize=(8, 6))
+df['GOOD/BAD LOAN'].value_counts().plot(kind='bar', color=['green', 'red'], alpha=0.7)
+plt.title('Histogram of Good and Bad Loans')
+plt.xlabel('Loan Type')
+plt.ylabel('Frequency')
+plt.xticks(rotation=0)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+chart_path = 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'
+plt.savefig(chart_path)
+plt.close()
+result = {'type': 'plot', 'value': chart_path}
+        ```
+2025-06-08 16:49:32 [INFO] Executing Step 6: CodeExecution
+2025-06-08 16:49:32 [INFO] Executing Step 7: ResultValidation
+2025-06-08 16:49:32 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'}
+2025-06-08 16:49:32 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:03:11 [INFO] Question: How many good and bad loans are there
+2025-06-08 17:03:11 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:03:11 [INFO] Prompt ID: 1825f7b7-6d15-40b7-b656-c408e18ce89f
+2025-06-08 17:03:11 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:03:11 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:03:11 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:03:11 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:03:11 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-suJHAt,Good,Yes,45521,14,121,28851348.60187338,Finance Audits,Fresh,Secured,Partnership / LLP,C,California,New Emilytown,Managing Director,Member,668.0,808.0,RURAL,7,10540181.20864429
+sdv-id-zAYImI,Bad,No,3401959,14,85,,Finance Ledgers,Fresh,Others,Private Limited Company,S,Colorado,Klineport,Member,,115.0,,URBAN,14,16121929.60479587
+sdv-id-LeOUcd,Bad,Yes,1400534,14,30,37532342.64913046,,Top Up,Unsecured,Public Limited Company,l,North Carolina,,,Vice President,,794.0,SEMIU,24,
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many good and bad loans are there
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:03:11 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:03:14 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:03:14 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-suJHAt,Good,Yes,45521,14,121,28851348.60187338,Finance Audits,Fresh,Secured,Partnership / LLP,C,California,New Emilytown,Managing Director,Member,668.0,808.0,RURAL,7,10540181.20864429
+sdv-id-zAYImI,Bad,No,3401959,14,85,,Finance Ledgers,Fresh,Others,Private Limited Company,S,Colorado,Klineport,Member,,115.0,,URBAN,14,16121929.60479587
+sdv-id-LeOUcd,Bad,Yes,1400534,14,30,37532342.64913046,,Top Up,Unsecured,Public Limited Company,l,North Carolina,,,Vice President,,794.0,SEMIU,24,
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ How many good and bad loans are there
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:03:14 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+# type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+# Extract the dataframe from the list
+df = dfs[0]
+
+# Count the number of good and bad loans
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+
+# Prepare the result dictionary
+result = {
+    "type": "dataframe",
+    "value": pd.DataFrame({
+        "Loan Type": loan_counts.index,
+        "Count": loan_counts.values
+    })
+}
+            ```
+            
+2025-06-08 17:03:14 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:03:14 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:03:14 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 17:03:14 [INFO] 
+Code running:
+```
+df = dfs[0]
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+result = {'type': 'dataframe', 'value': pd.DataFrame({'Loan Type': loan_counts.index, 'Count': loan_counts.values})}
+        ```
+2025-06-08 17:03:14 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:03:14 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:03:14 [INFO] Answer: {'type': 'dataframe', 'value':   Loan Type  Count
+0       Bad   3134
+1      Good   2866}
+2025-06-08 17:03:14 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:25:45 [INFO] Question: How many good and bad loans are there
+2025-06-08 17:25:45 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:25:45 [INFO] Prompt ID: 701e4583-78c1-424b-971e-e54700353e4b
+2025-06-08 17:25:45 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:25:45 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:25:45 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:25:45 [INFO] Using cached response
+2025-06-08 17:25:45 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:25:45 [INFO] Executing Step 2: Skipping...
+2025-06-08 17:25:45 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:25:45 [INFO] Executing Step 3: Skipping...
+2025-06-08 17:25:45 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:25:45 [INFO] Executing Step 4: Skipping...
+2025-06-08 17:25:45 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:25:45 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 17:25:45 [INFO] 
+Code running:
+```
+df = dfs[0]
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+result = {'type': 'dataframe', 'value': pd.DataFrame({'Loan Type': loan_counts.index, 'Count': loan_counts.values})}
+        ```
+2025-06-08 17:25:45 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:25:45 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:25:45 [INFO] Answer: {'type': 'dataframe', 'value':   Loan Type  Count
+0       Bad   3134
+1      Good   2866}
+2025-06-08 17:25:45 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:26:18 [INFO] Question: give me summary statistics for the data
+
+2025-06-08 17:26:18 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:26:18 [INFO] Prompt ID: 73fb158d-b275-4b39-99d2-92f82ea16fab
+2025-06-08 17:26:18 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:26:18 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:26:18 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:26:18 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:26:18 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-wVrdGU,Bad,No,2764823,14,81,25159366.18128965,,Fresh,Others,Private Limited Company,K,Connecticut,West Jonathan,Director,,641.0,,URBAN,8,3725808.374821136
+sdv-id-Kkanfz,Bad,No,7659637,14,51,,Bank Credits,Top Up,Unsecured,Public Limited Company,U,Oklahoma,North Scotttown,,Vice President,688.0,812.0,RURAL,48,
+sdv-id-TOJfIc,Good,Yes,787877,14,66,11162447.26557617,Finance Audits,Top Up,Secured,Society,E,Montana,,Correspondent,Managing Director,,480.0,SEMIU,45,2126114.696211095
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ give me summary statistics for the data
+
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:26:18 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:26:21 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:26:21 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-wVrdGU,Bad,No,2764823,14,81,25159366.18128965,,Fresh,Others,Private Limited Company,K,Connecticut,West Jonathan,Director,,641.0,,URBAN,8,3725808.374821136
+sdv-id-Kkanfz,Bad,No,7659637,14,51,,Bank Credits,Top Up,Unsecured,Public Limited Company,U,Oklahoma,North Scotttown,,Vice President,688.0,812.0,RURAL,48,
+sdv-id-TOJfIc,Good,Yes,787877,14,66,11162447.26557617,Finance Audits,Top Up,Secured,Society,E,Montana,,Correspondent,Managing Director,,480.0,SEMIU,45,2126114.696211095
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ give me summary statistics for the data
+
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:26:21 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Compute summary statistics for the first dataframe in dfs
+summary_statistics = dfs[0].describe(include='all')
+
+# Declare result var:
+result = {
+    "type": "dataframe",
+    "value": summary_statistics
+}
+            ```
+            
+2025-06-08 17:26:21 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:26:21 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:26:21 [INFO] 
+Code running:
+```
+summary_statistics = dfs[0].describe(include='all')
+result = {'type': 'dataframe', 'value': summary_statistics}
+        ```
+2025-06-08 17:26:21 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:26:21 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:26:21 [INFO] Answer: {'type': 'dataframe', 'value':              LOAN IDS GOOD/BAD LOAN COVID_PERIOD(DEFAULT)  RECOMENDED_LOAN_AMT  ...  COBORROWER2_CIBILSCORE  LOCALITY  YEARS OF OPERATION  TOTAL_INCOME
+count            6000          6000                  6000         6.000000e+03  ...             5969.000000      6000         6000.000000  5.958000e+03
+unique           6000             2                     2                  NaN  ...                     NaN         3                 NaN           NaN
+top     sdv-id-aUzuCs           Bad                    No                  NaN  ...                     NaN     SEMIU                 NaN           NaN
+freq                1          3134                  3998                  NaN  ...                     NaN      2365                 NaN           NaN
+mean              NaN           NaN                   NaN         2.520955e+06  ...              610.534595       NaN           12.720000  1.294647e+07
+std               NaN           NaN                   NaN         3.562168e+06  ...              368.551376       NaN            8.740252  1.411259e+07
+min               NaN           NaN                   NaN         7.077000e+03  ...               -1.000000       NaN            0.000000  1.534926e+03
+25%               NaN           NaN                   NaN         2.490780e+05  ...              133.000000       NaN            6.000000  3.060844e+06
+50%               NaN           NaN                   NaN         1.137846e+06  ...              862.000000       NaN           11.000000  8.467486e+06
+75%               NaN           NaN                   NaN         3.283056e+06  ...              862.000000       NaN           17.000000  1.811160e+07
+max               NaN           NaN                   NaN         3.150114e+07  ...              862.000000       NaN           68.000000  1.304435e+08
+
+[11 rows x 21 columns]}
+2025-06-08 17:26:21 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:34:07 [INFO] Question: What is the average loan amount
+2025-06-08 17:34:07 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:34:07 [INFO] Prompt ID: 61dff210-2448-4ccb-92ae-9ca3ba2f960f
+2025-06-08 17:34:07 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:34:07 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:34:07 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:34:07 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:34:07 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-hFGgwj,Good,No,3650214,14,54,3509408.297455792,Bank Credits,Fresh,Others,Trust,W,Wisconsin,New Douglas,Chairman,Treasurer,,,URBAN,13,
+sdv-id-vMIPBK,Bad,Yes,13539,14,128,22297710.64669316,,Fresh,Secured,Individual,V,Arkansas,West Stacie,Managing Director,,291.0,634.0,RURAL,48,3535982.130912317
+sdv-id-zpfnCo,Bad,Yes,403276,14,63,,Average Bank Balance,Top Up,Unsecured,Private Limited Company,O,North Carolina,,,Vice President,146.0,586.0,SEMIU,22,13854629.57855732
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ What is the average loan amount
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:34:07 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:34:10 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:34:10 [ERROR] Pipeline failed on step 3: No code found in the response
+2025-06-08 17:34:15 [INFO] Question: What is the average loan amount
+2025-06-08 17:34:15 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:34:15 [INFO] Prompt ID: a4f53b7a-4949-4811-be0f-d9479c85d7bc
+2025-06-08 17:34:15 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:34:15 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:34:15 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:34:15 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:34:15 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-jvrhfJ,Bad,Yes,274384,14,43,,Cashflows,Fresh,Unsecured,Society,W,Nebraska,Goldenport,Trustee,,727.0,,URBAN,61,
+sdv-id-iHeLAc,Good,Yes,434812,14,44,20659545.08839808,Average Bank Balance,Top Up,Others,Trust,b,Missouri,,Managing Director,Secretary,,193.0,RURAL,34,1630607.317004263
+sdv-id-siJNMU,Good,No,493333,14,29,4986749.756193899,,Fresh,Secured,Individual,f,South Carolina,Lake Aliciafort,,Managing Director,116.0,91.0,SEMIU,9,3784428.058324227
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ What is the average loan amount
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:34:15 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:34:18 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:34:18 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-jvrhfJ,Bad,Yes,274384,14,43,,Cashflows,Fresh,Unsecured,Society,W,Nebraska,Goldenport,Trustee,,727.0,,URBAN,61,
+sdv-id-iHeLAc,Good,Yes,434812,14,44,20659545.08839808,Average Bank Balance,Top Up,Others,Trust,b,Missouri,,Managing Director,Secretary,,193.0,RURAL,34,1630607.317004263
+sdv-id-siJNMU,Good,No,493333,14,29,4986749.756193899,,Fresh,Secured,Individual,f,South Carolina,Lake Aliciafort,,Managing Director,116.0,91.0,SEMIU,9,3784428.058324227
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ What is the average loan amount
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:34:18 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+# type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+# Calculate the average loan amount
+dfs[0]['RECOMENDED_LOAN_AMT'] = pd.to_numeric(dfs[0]['RECOMENDED_LOAN_AMT'], errors='coerce')  # Ensure column is numeric
+average_loan_amount = dfs[0]['RECOMENDED_LOAN_AMT'].mean()
+
+# Declare result variable
+result = { "type": "number", "value": average_loan_amount }
+            ```
+            
+2025-06-08 17:34:18 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:34:18 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:34:18 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 17:34:18 [INFO] 
+Code running:
+```
+dfs[0]['RECOMENDED_LOAN_AMT'] = pd.to_numeric(dfs[0]['RECOMENDED_LOAN_AMT'], errors='coerce')
+average_loan_amount = dfs[0]['RECOMENDED_LOAN_AMT'].mean()
+result = {'type': 'number', 'value': average_loan_amount}
+        ```
+2025-06-08 17:34:18 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:34:18 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:34:18 [INFO] Answer: {'type': 'number', 'value': 2520954.5478333333}
+2025-06-08 17:34:18 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:34:40 [INFO] Question: Give me a plot for interest rate
+2025-06-08 17:34:40 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:34:40 [INFO] Prompt ID: 8f758c29-ec50-4b29-a1f9-f7dcb248a650
+2025-06-08 17:34:40 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:34:40 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:34:40 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:34:40 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:34:40 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-Xqcqiz,Good,Yes,636660,14,81,,Finance Ledgers,Fresh,Unsecured,Trust,i,Colorado,Maysmouth,,Member,51.0,496.0,URBAN,58,32603337.19238092
+sdv-id-oQIJRP,Bad,No,7029845,14,95,13910126.80780966,Finance Audits,Top Up,Others,Society,d,Indiana,Markburgh,Others,,320.0,730.0,RURAL,39,16241877.16947341
+sdv-id-whaByC,Bad,No,73871,14,73,15972229.76072582,,Top Up,Secured,Private Limited Company,B,Florida,,Managing Director,Treasurer,,,SEMIU,34,
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a plot for interest rate
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:34:40 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:34:43 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:34:43 [ERROR] Pipeline failed on step 3: No code found in the response
+2025-06-08 17:34:46 [INFO] Question: Give me a plot for interest rate
+2025-06-08 17:34:46 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:34:46 [INFO] Prompt ID: 7681463f-1230-4540-90a3-4387fe65f7af
+2025-06-08 17:34:46 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:34:46 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:34:46 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:34:46 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:34:46 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-nkJges,Bad,No,17822,14,124,36773162.58609535,Finance Ledgers,Top Up,Unsecured,Individual,L,Rhode Island,,Director,Treasurer,864.0,720.0,URBAN,40,1407701097
+sdv-id-xsjUEN,Good,No,333382,14,90,,,Top Up,Others,Society,X,Washington,Alexanderland,,,624.0,,RURAL,2,2914866898
+sdv-id-DhtlJx,Good,Yes,645972,14,87,61093196.26228419,Cashflows,Fresh,Secured,Trust,g,Ohio,West Kayla,Others,Others,,761.0,SEMIU,7,5081351722
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a plot for interest rate
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:34:46 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:34:50 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:34:50 [ERROR] Pipeline failed on step 3: No code found in the response
+2025-06-08 17:35:03 [INFO] Question: Give me a histogram for interest rate
+2025-06-08 17:35:03 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:35:03 [INFO] Prompt ID: d7017813-9641-4424-aa20-c4d919d5b4aa
+2025-06-08 17:35:03 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:35:03 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:35:03 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:35:03 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:35:03 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-bmvLey,Good,Yes,604654,14,107,,Cashflows,Fresh,Unsecured,Individual,Z,Nevada,North Casey,Managing Director,Managing Trustee,,806.0,URBAN,8,10517490.78019692
+sdv-id-PtiXIB,Good,No,2673149,14,58,20944000.40971601,,Top Up,Others,Private Limited Company,U,Kansas,Ryanmouth,,,423.0,,SEMIU,22,
+sdv-id-biDnQU,Bad,Yes,782258,14,113,2815376.49185937,Finance Audits,Top Up,Secured,Trust,S,Tennessee,,Vice President,Chairman,552.0,828.0,RURAL,31,591341.5821091945
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a histogram for interest rate
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:35:03 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:35:06 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:35:06 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-bmvLey,Good,Yes,604654,14,107,,Cashflows,Fresh,Unsecured,Individual,Z,Nevada,North Casey,Managing Director,Managing Trustee,,806.0,URBAN,8,10517490.78019692
+sdv-id-PtiXIB,Good,No,2673149,14,58,20944000.40971601,,Top Up,Others,Private Limited Company,U,Kansas,Ryanmouth,,,423.0,,SEMIU,22,
+sdv-id-biDnQU,Bad,Yes,782258,14,113,2815376.49185937,Finance Audits,Top Up,Secured,Trust,S,Tennessee,,Vice President,Chairman,552.0,828.0,RURAL,31,591341.5821091945
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a histogram for interest rate
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:35:06 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+
+# Assuming dfs is already declared and contains the dataframes
+df = dfs[0]
+
+# Extract the 'INTEREST_RATE' column for plotting
+interest_rates = df['INTEREST_RATE']
+
+# Create a histogram for interest rates
+plt.figure(figsize=(10, 6))
+plt.hist(interest_rates, bins=20, color='blue', edgecolor='black')
+plt.title('Histogram of Interest Rates')
+plt.xlabel('Interest Rate (%)')
+plt.ylabel('Frequency')
+plt.grid(axis='y', alpha=0.75)
+
+# Save the plot as a PNG file
+chart_path = "interest_rate_histogram.png"
+plt.savefig(chart_path)
+plt.close()
+
+# Declare result variable
+result = { "type": "plot", "value": chart_path }
+            ```
+            
+2025-06-08 17:35:06 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:35:06 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:35:06 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 17:35:06 [INFO] 
+Code running:
+```
+df = dfs[0]
+interest_rates = df['INTEREST_RATE']
+plt.figure(figsize=(10, 6))
+plt.hist(interest_rates, bins=20, color='blue', edgecolor='black')
+plt.title('Histogram of Interest Rates')
+plt.xlabel('Interest Rate (%)')
+plt.ylabel('Frequency')
+plt.grid(axis='y', alpha=0.75)
+chart_path = 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'
+plt.savefig(chart_path)
+plt.close()
+result = {'type': 'plot', 'value': chart_path}
+        ```
+2025-06-08 17:35:06 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:35:06 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:35:06 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'}
+2025-06-08 17:35:06 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:35:57 [INFO] Question: Give me a plot for good and bad loan
+2025-06-08 17:35:57 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:35:57 [INFO] Prompt ID: 29f80c6f-da0c-4c8f-b30e-aa18e4de2ff7
+2025-06-08 17:35:57 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:35:57 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:35:57 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:35:57 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:35:57 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-QHYixW,Bad,No,65596,14,88,13006639.99859941,Finance Audits,Fresh,Unsecured,Individual,k,Vermont,North Timothyside,President,Committee member,806.0,,SEMIU,29,6196396.364456603
+sdv-id-KjDaMg,Bad,Yes,199460,14,23,,,Top Up,Secured,Society,m,New Hampshire,Jonathanhaven,,Chairman,,236.0,URBAN,51,
+sdv-id-yNYMXn,Good,No,1429897,14,19,16553707.62316859,Finance Ledgers,Fresh,Others,Public Limited Company,W,Illinois,,Secretary,,548.0,53.0,RURAL,12,13537771.16203977
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a plot for good and bad loan
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:35:57 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:36:00 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:36:00 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-QHYixW,Bad,No,65596,14,88,13006639.99859941,Finance Audits,Fresh,Unsecured,Individual,k,Vermont,North Timothyside,President,Committee member,806.0,,SEMIU,29,6196396.364456603
+sdv-id-KjDaMg,Bad,Yes,199460,14,23,,,Top Up,Secured,Society,m,New Hampshire,Jonathanhaven,,Chairman,,236.0,URBAN,51,
+sdv-id-yNYMXn,Good,No,1429897,14,19,16553707.62316859,Finance Ledgers,Fresh,Others,Public Limited Company,W,Illinois,,Secretary,,548.0,53.0,RURAL,12,13537771.16203977
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a plot for good and bad loan
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:36:00 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+
+# Extract the dataframe from the list
+df = dfs[0]
+
+# Clean and preprocess the data
+# Ensure the column names are stripped of any leading/trailing spaces
+df.columns = df.columns.str.strip()
+
+# Count the number of Good and Bad loans
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+
+# Plot the data
+plt.figure(figsize=(8, 6))
+loan_counts.plot(kind='bar', color=['green', 'red'])
+plt.title('Good vs Bad Loans')
+plt.xlabel('Loan Type')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.tight_layout()
+
+# Save the plot as a PNG file
+plot_filename = "good_bad_loans_chart.png"
+plt.savefig(plot_filename)
+
+# Declare result variable
+result = { "type": "plot", "value": plot_filename }
+            ```
+            
+2025-06-08 17:36:00 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:36:00 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:36:00 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 17:36:00 [INFO] 
+Code running:
+```
+df = dfs[0]
+df.columns = df.columns.str.strip()
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+plt.figure(figsize=(8, 6))
+loan_counts.plot(kind='bar', color=['green', 'red'])
+plt.title('Good vs Bad Loans')
+plt.xlabel('Loan Type')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.tight_layout()
+plot_filename = 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'
+plt.savefig(plot_filename)
+result = {'type': 'plot', 'value': plot_filename}
+        ```
+2025-06-08 17:36:00 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:36:00 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:36:00 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'}
+2025-06-08 17:36:00 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:37:52 [INFO] Question: Give me summary statistics for the data
+2025-06-08 17:37:52 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:37:52 [INFO] Prompt ID: c0fe0852-26b9-40ec-9b05-7693bf6fb814
+2025-06-08 17:37:52 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:37:52 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:37:53 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:37:53 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:37:53 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-BOFgun,Bad,Yes,16161,14,101,6339191.81845605,Average Bank Balance,Top Up,Secured,Trust,K,Florida,Perezland,Committee Member,Committee member,529.0,,RURAL,16,12963500.20805367
+sdv-id-uTdtpS,Good,Yes,20678,14,42,,Cashflows,Top Up,Others,Partnership / LLP,B,Vermont,,Others,,212.0,854.0,SEMIU,55,9910832.780646324
+sdv-id-IpslKp,Good,No,6146549,14,122,36075180.59896177,,Fresh,Unsecured,Private Limited Company,X,Texas,Kevinborough,,Secretary,,341.0,URBAN,51,
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me summary statistics for the data
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:37:53 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:37:53 [INFO] Retrying request to /chat/completions in 0.426395 seconds
+2025-06-08 17:37:57 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:37:57 [ERROR] Pipeline failed on step 3: No code found in the response
+2025-06-08 17:39:05 [INFO] Question: Give me summary statistics for the data
+2025-06-08 17:39:05 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:39:05 [INFO] Prompt ID: 29a03d6d-1fe4-44da-baef-dd3c2e63ff3e
+2025-06-08 17:39:05 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:39:05 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:39:05 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:39:05 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:39:05 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-JATQkf,Bad,No,8894422,14,44,,,Fresh,Secured,Private Limited Company,H,Washington,Lake Deborah,Secretary,Director,23.0,364.0,URBAN,27,
+sdv-id-WjIqtv,Bad,No,303935,14,109,29423406.41604704,Finance Audits,Fresh,Unsecured,Individual,Z,Montana,,,,,267.0,SEMIU,22,2520871.36051108
+sdv-id-TBriFi,Good,Yes,2025914,14,47,11427925.02963361,Cashflows,Top Up,Others,Public Limited Company,k,West Virginia,Nelsontown,President,President,370.0,,RURAL,7,18122765.02197242
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me summary statistics for the data
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:39:05 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:39:08 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:39:08 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-JATQkf,Bad,No,8894422,14,44,,,Fresh,Secured,Private Limited Company,H,Washington,Lake Deborah,Secretary,Director,23.0,364.0,URBAN,27,
+sdv-id-WjIqtv,Bad,No,303935,14,109,29423406.41604704,Finance Audits,Fresh,Unsecured,Individual,Z,Montana,,,,,267.0,SEMIU,22,2520871.36051108
+sdv-id-TBriFi,Good,Yes,2025914,14,47,11427925.02963361,Cashflows,Top Up,Others,Public Limited Company,k,West Virginia,Nelsontown,President,President,370.0,,RURAL,7,18122765.02197242
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me summary statistics for the data
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:39:08 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Compute summary statistics for the dataframe
+summary_statistics = dfs[0].describe(include='all')
+
+# Declare result var:
+result = {
+    "type": "dataframe",
+    "value": summary_statistics
+}
+            ```
+            
+2025-06-08 17:39:08 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:39:08 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:39:08 [INFO] 
+Code running:
+```
+summary_statistics = dfs[0].describe(include='all')
+result = {'type': 'dataframe', 'value': summary_statistics}
+        ```
+2025-06-08 17:39:08 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:39:08 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:39:08 [INFO] Answer: {'type': 'dataframe', 'value':              LOAN IDS GOOD/BAD LOAN COVID_PERIOD(DEFAULT)  RECOMENDED_LOAN_AMT  ...  COBORROWER2_CIBILSCORE  LOCALITY  YEARS OF OPERATION  TOTAL_INCOME
+count            6000          6000                  6000         6.000000e+03  ...             5969.000000      6000         6000.000000  5.958000e+03
+unique           6000             2                     2                  NaN  ...                     NaN         3                 NaN           NaN
+top     sdv-id-aUzuCs           Bad                    No                  NaN  ...                     NaN     SEMIU                 NaN           NaN
+freq                1          3134                  3998                  NaN  ...                     NaN      2365                 NaN           NaN
+mean              NaN           NaN                   NaN         2.520955e+06  ...              610.534595       NaN           12.720000  1.294647e+07
+std               NaN           NaN                   NaN         3.562168e+06  ...              368.551376       NaN            8.740252  1.411259e+07
+min               NaN           NaN                   NaN         7.077000e+03  ...               -1.000000       NaN            0.000000  1.534926e+03
+25%               NaN           NaN                   NaN         2.490780e+05  ...              133.000000       NaN            6.000000  3.060844e+06
+50%               NaN           NaN                   NaN         1.137846e+06  ...              862.000000       NaN           11.000000  8.467486e+06
+75%               NaN           NaN                   NaN         3.283056e+06  ...              862.000000       NaN           17.000000  1.811160e+07
+max               NaN           NaN                   NaN         3.150114e+07  ...              862.000000       NaN           68.000000  1.304435e+08
+
+[11 rows x 21 columns]}
+2025-06-08 17:39:08 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:39:31 [INFO] Question: give me a plot for good and bad loans
+2025-06-08 17:39:31 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:39:31 [INFO] Prompt ID: e7136c81-7d1d-45f7-bc74-c7e39c507ab1
+2025-06-08 17:39:31 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:39:31 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:39:31 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:39:31 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:39:31 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-juevbw,Bad,Yes,3149734,14,120,27383606.96195783,Cashflows,Fresh,Unsecured,Partnership / LLP,V,North Dakota,Burtonburgh,Treasurer,Chairman,,,SEMIU,59,
+sdv-id-KVQVdI,Good,No,27729790,14,62,,,Fresh,Secured,Individual,`,Arkansas,Port Bradyton,Secretary,Secretary,352.0,47.0,URBAN,30,977171.739832245
+sdv-id-JHzVnR,Bad,No,818194,14,51,14931981.10795066,Finance Ledgers,Top Up,Others,Public Limited Company,N,Iowa,,,,608.0,244.0,RURAL,18,35611607.23013721
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ give me a plot for good and bad loans
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:39:31 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:39:35 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:39:35 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-juevbw,Bad,Yes,3149734,14,120,27383606.96195783,Cashflows,Fresh,Unsecured,Partnership / LLP,V,North Dakota,Burtonburgh,Treasurer,Chairman,,,SEMIU,59,
+sdv-id-KVQVdI,Good,No,27729790,14,62,,,Fresh,Secured,Individual,`,Arkansas,Port Bradyton,Secretary,Secretary,352.0,47.0,URBAN,30,977171.739832245
+sdv-id-JHzVnR,Bad,No,818194,14,51,14931981.10795066,Finance Ledgers,Top Up,Others,Public Limited Company,N,Iowa,,,,608.0,244.0,RURAL,18,35611607.23013721
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ give me a plot for good and bad loans
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:39:35 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+
+# Extract the dataframe from the list
+df = dfs[0]
+
+# Count the number of Good and Bad loans
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+
+# Plot the data
+plt.figure(figsize=(8, 6))
+loan_counts.plot(kind='bar', color=['green', 'red'])
+plt.title('Good vs Bad Loans')
+plt.xlabel('Loan Type')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Save the plot as a PNG file
+plot_filename = "good_bad_loans_chart.png"
+plt.savefig(plot_filename)
+plt.close()
+
+# Declare result var
+result = {
+    "type": "plot",
+    "value": plot_filename
+}
+            ```
+            
+2025-06-08 17:39:35 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:39:35 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:39:35 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 17:39:35 [INFO] 
+Code running:
+```
+df = dfs[0]
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+plt.figure(figsize=(8, 6))
+loan_counts.plot(kind='bar', color=['green', 'red'])
+plt.title('Good vs Bad Loans')
+plt.xlabel('Loan Type')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plot_filename = 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'
+plt.savefig(plot_filename)
+plt.close()
+result = {'type': 'plot', 'value': plot_filename}
+        ```
+2025-06-08 17:39:35 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:39:35 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:39:35 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'}
+2025-06-08 17:39:35 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:47:46 [INFO] Question: Give me summary statistics for this data
+2025-06-08 17:47:46 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:47:46 [INFO] Prompt ID: 1000c69f-7192-4aa3-b15f-314ae63544ca
+2025-06-08 17:47:46 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:47:46 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:47:46 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:47:46 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:47:46 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-EKgeif,Bad,Yes,5880380,14,68,26448992.21630276,Finance Audits,Fresh,Unsecured,Trust,B,Ohio,Foxfort,Correspondent,President,,,SEMIU,55,
+sdv-id-NhRhHS,Good,No,3900283,14,108,29918563.96226695,Bank Credits,Fresh,Others,Public Limited Company,i,Nevada,Lake Dawnside,,Correspondent,331.0,287.0,RURAL,23,13808407.73671697
+sdv-id-orxRYA,Good,No,1233522,14,11,,,Top Up,Secured,Private Limited Company,U,Florida,,Chairman,,39.0,334.0,URBAN,12,7637335.776448965
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me summary statistics for this data
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:47:46 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:47:49 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:47:49 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-EKgeif,Bad,Yes,5880380,14,68,26448992.21630276,Finance Audits,Fresh,Unsecured,Trust,B,Ohio,Foxfort,Correspondent,President,,,SEMIU,55,
+sdv-id-NhRhHS,Good,No,3900283,14,108,29918563.96226695,Bank Credits,Fresh,Others,Public Limited Company,i,Nevada,Lake Dawnside,,Correspondent,331.0,287.0,RURAL,23,13808407.73671697
+sdv-id-orxRYA,Good,No,1233522,14,11,,,Top Up,Secured,Private Limited Company,U,Florida,,Chairman,,39.0,334.0,URBAN,12,7637335.776448965
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me summary statistics for this data
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:47:49 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+# Variable `dfs` is already declared as a list of DataFrames
+df = dfs[0]  # Extract the first DataFrame from the list
+
+# Compute summary statistics
+summary_stats = df.describe(include='all')  # Include all columns (numerical and categorical)
+
+# Prepare the result variable
+result = {
+    "type": "dataframe",
+    "value": summary_stats
+}
+            ```
+            
+2025-06-08 17:47:49 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:47:49 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:47:49 [INFO] 
+Code running:
+```
+df = dfs[0]
+summary_stats = df.describe(include='all')
+result = {'type': 'dataframe', 'value': summary_stats}
+        ```
+2025-06-08 17:47:49 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:47:49 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:47:49 [INFO] Answer: {'type': 'dataframe', 'value':              LOAN IDS GOOD/BAD LOAN COVID_PERIOD(DEFAULT)  RECOMENDED_LOAN_AMT  ...  COBORROWER2_CIBILSCORE  LOCALITY  YEARS OF OPERATION  TOTAL_INCOME
+count            6000          6000                  6000         6.000000e+03  ...             5969.000000      6000         6000.000000  5.958000e+03
+unique           6000             2                     2                  NaN  ...                     NaN         3                 NaN           NaN
+top     sdv-id-aUzuCs           Bad                    No                  NaN  ...                     NaN     SEMIU                 NaN           NaN
+freq                1          3134                  3998                  NaN  ...                     NaN      2365                 NaN           NaN
+mean              NaN           NaN                   NaN         2.520955e+06  ...              610.534595       NaN           12.720000  1.294647e+07
+std               NaN           NaN                   NaN         3.562168e+06  ...              368.551376       NaN            8.740252  1.411259e+07
+min               NaN           NaN                   NaN         7.077000e+03  ...               -1.000000       NaN            0.000000  1.534926e+03
+25%               NaN           NaN                   NaN         2.490780e+05  ...              133.000000       NaN            6.000000  3.060844e+06
+50%               NaN           NaN                   NaN         1.137846e+06  ...              862.000000       NaN           11.000000  8.467486e+06
+75%               NaN           NaN                   NaN         3.283056e+06  ...              862.000000       NaN           17.000000  1.811160e+07
+max               NaN           NaN                   NaN         3.150114e+07  ...              862.000000       NaN           68.000000  1.304435e+08
+
+[11 rows x 21 columns]}
+2025-06-08 17:47:49 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:48:31 [INFO] Question: Give me plot for good and bad loans
+2025-06-08 17:48:31 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:48:31 [INFO] Prompt ID: e3d05cc5-c4fd-4743-b1e1-68835f0e2027
+2025-06-08 17:48:31 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:48:31 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:48:31 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:48:31 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:48:31 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-gsYpnk,Bad,Yes,409785,14,82,,Finance Ledgers,Fresh,Unsecured,Public Limited Company,^,Minnesota,New Sarah,Managing Director,,8.0,751.0,URBAN,13,6595432.806598057
+sdv-id-wyTKLo,Good,No,1388617,14,35,24930792.17436076,,Top Up,Secured,Partnership / LLP,J,Illinois,,Trustee,Member,,,RURAL,11,
+sdv-id-PnfhDL,Bad,Yes,9499126,14,122,6724007.941074833,Cashflows,Top Up,Others,Trust,O,North Dakota,West Tinashire,,Correspondent,624.0,663.0,SEMIU,10,11880778.23089388
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me plot for good and bad loans
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:48:31 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:48:34 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:48:34 [ERROR] Pipeline failed on step 3: No code found in the response
+2025-06-08 17:48:47 [INFO] Question: Give me a plot for good and bad loans
+2025-06-08 17:48:47 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:48:47 [INFO] Prompt ID: 8973b5ad-fed9-4b65-bd43-ce980dd8e323
+2025-06-08 17:48:47 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:48:47 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:48:47 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:48:47 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:48:47 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-cZQano,Good,Yes,1959007,14,16,3316813.882840898,,Top Up,Others,Trust,`,Massachusetts,,Managing Director,,361.0,301.0,RURAL,10,
+sdv-id-TRwntB,Good,No,4138872,14,127,32761370.33344528,Finance Ledgers,Top Up,Unsecured,Society,I,South Carolina,Robertmouth,Committee Member,Correspondent,201.0,,SEMIU,34,2610912.412735915
+sdv-id-ThfQdo,Bad,Yes,2106761,14,15,,Finance Audits,Fresh,Secured,Partnership / LLP,O,North Carolina,South Desireestad,,Member,,134.0,URBAN,3,23653067.61851988
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a plot for good and bad loans
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:48:47 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:48:51 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:48:51 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-cZQano,Good,Yes,1959007,14,16,3316813.882840898,,Top Up,Others,Trust,`,Massachusetts,,Managing Director,,361.0,301.0,RURAL,10,
+sdv-id-TRwntB,Good,No,4138872,14,127,32761370.33344528,Finance Ledgers,Top Up,Unsecured,Society,I,South Carolina,Robertmouth,Committee Member,Correspondent,201.0,,SEMIU,34,2610912.412735915
+sdv-id-ThfQdo,Bad,Yes,2106761,14,15,,Finance Audits,Fresh,Secured,Partnership / LLP,O,North Carolina,South Desireestad,,Member,,134.0,URBAN,3,23653067.61851988
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ Give me a plot for good and bad loans
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:48:51 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+
+# Declare result var: 
+# Variable `dfs` is already declared and contains a list of DataFrames.
+df = dfs[0]
+
+# Clean and preprocess the data
+df['GOOD/BAD LOAN'] = df['GOOD/BAD LOAN'].str.strip()  # Remove any leading/trailing spaces
+
+# Count the number of Good and Bad loans
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+
+# Plot the data
+plt.figure(figsize=(8, 6))
+loan_counts.plot(kind='bar', color=['green', 'red'], alpha=0.7)
+plt.title('Distribution of Good and Bad Loans')
+plt.xlabel('Loan Type')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+
+# Save the plot as a PNG file
+plot_filename = "good_bad_loans_chart.png"
+plt.savefig(plot_filename)
+plt.close()
+
+# Declare result variable
+result = { "type": "plot", "value": plot_filename }
+            ```
+            
+2025-06-08 17:48:51 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:48:51 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:48:51 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 17:48:51 [INFO] 
+Code running:
+```
+df = dfs[0]
+df['GOOD/BAD LOAN'] = df['GOOD/BAD LOAN'].str.strip()
+loan_counts = df['GOOD/BAD LOAN'].value_counts()
+plt.figure(figsize=(8, 6))
+loan_counts.plot(kind='bar', color=['green', 'red'], alpha=0.7)
+plt.title('Distribution of Good and Bad Loans')
+plt.xlabel('Loan Type')
+plt.ylabel('Count')
+plt.xticks(rotation=0)
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+plot_filename = 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'
+plt.savefig(plot_filename)
+plt.close()
+result = {'type': 'plot', 'value': plot_filename}
+        ```
+2025-06-08 17:48:51 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:48:51 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:48:51 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'}
+2025-06-08 17:48:51 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:49:20 [INFO] Question: give me plot for interest rates
+2025-06-08 17:49:20 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:49:20 [INFO] Prompt ID: 84662939-6bec-4cb4-85e7-b3b7fa8618cf
+2025-06-08 17:49:20 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:49:20 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:49:20 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:49:20 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:49:20 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-tKSZql,Bad,Yes,947995,14,83,12747863.43943152,,Fresh,Others,Private Limited Company,F,Minnesota,Adamstown,Trustee,Correspondent,249.0,,RURAL,58,708378.34673437
+sdv-id-YnglXD,Bad,No,85779,14,50,22713160.74926933,Cashflows,Top Up,Unsecured,Society,g,Texas,North Ruth,Committee Member,,,749.0,SEMIU,47,
+sdv-id-RglnMD,Good,No,10414315,14,123,,Bank Credits,Fresh,Secured,Public Limited Company,N,Mississippi,,,Member,266.0,278.0,URBAN,18,4514628.390697813
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ give me plot for interest rates
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:49:20 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:49:23 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:49:23 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-tKSZql,Bad,Yes,947995,14,83,12747863.43943152,,Fresh,Others,Private Limited Company,F,Minnesota,Adamstown,Trustee,Correspondent,249.0,,RURAL,58,708378.34673437
+sdv-id-YnglXD,Bad,No,85779,14,50,22713160.74926933,Cashflows,Top Up,Unsecured,Society,g,Texas,North Ruth,Committee Member,,,749.0,SEMIU,47,
+sdv-id-RglnMD,Good,No,10414315,14,123,,Bank Credits,Fresh,Secured,Public Limited Company,N,Mississippi,,,Member,266.0,278.0,URBAN,18,4514628.390697813
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ give me plot for interest rates
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:49:23 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Write code here
+
+# Extract the dataframe from the list
+df = dfs[0]
+
+# Ensure the INTEREST_RATE column is numeric for plotting
+df['INTEREST_RATE'] = pd.to_numeric(df['INTEREST_RATE'], errors='coerce')
+
+# Plot a histogram of interest rates
+plt.figure(figsize=(10, 6))
+plt.hist(df['INTEREST_RATE'].dropna(), bins=20, color='blue', edgecolor='black')
+plt.title('Distribution of Interest Rates')
+plt.xlabel('Interest Rate (%)')
+plt.ylabel('Frequency')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+
+# Save the plot as a PNG file
+plot_filename = "interest_rate_distribution.png"
+plt.savefig(plot_filename)
+plt.close()
+
+# Declare result variable
+result = { "type": "plot", "value": plot_filename }
+            ```
+            
+2025-06-08 17:49:23 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:49:23 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:49:23 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 17:49:23 [INFO] 
+Code running:
+```
+df = dfs[0]
+df['INTEREST_RATE'] = pd.to_numeric(df['INTEREST_RATE'], errors='coerce')
+plt.figure(figsize=(10, 6))
+plt.hist(df['INTEREST_RATE'].dropna(), bins=20, color='blue', edgecolor='black')
+plt.title('Distribution of Interest Rates')
+plt.xlabel('Interest Rate (%)')
+plt.ylabel('Frequency')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plot_filename = 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'
+plt.savefig(plot_filename)
+plt.close()
+result = {'type': 'plot', 'value': plot_filename}
+        ```
+2025-06-08 17:49:23 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:49:23 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:49:23 [INFO] Answer: {'type': 'plot', 'value': 'C:/Users/yasha/OneDrive/Desktop/Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main/exports/charts/temp_chart.png'}
+2025-06-08 17:49:23 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:49:41 [INFO] Question: what is the data about
+2025-06-08 17:49:41 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:49:41 [INFO] Prompt ID: 3c68ade1-a131-4c27-ae19-7fc781f74514
+2025-06-08 17:49:41 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:49:41 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:49:41 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:49:41 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:49:41 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-CflUTI,Bad,No,506387,14,124,45672665.87197938,Average Bank Balance,Top Up,Secured,Individual,G,Tennessee,Theresaview,,,503.0,537.0,SEMIU,46,
+sdv-id-XkxkNA,Good,Yes,380576,14,104,,,Top Up,Others,Public Limited Company,M,Georgia,Changport,Committee Member,Secretary,,387.0,RURAL,10,13892706.72318314
+sdv-id-zChfXP,Good,No,1360625,14,85,12958379.83888149,Bank Credits,Fresh,Unsecured,Trust,N,Connecticut,,Director,President,653.0,,URBAN,29,302577.4709659557
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ what is the data about
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:49:41 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:49:45 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:49:45 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-CflUTI,Bad,No,506387,14,124,45672665.87197938,Average Bank Balance,Top Up,Secured,Individual,G,Tennessee,Theresaview,,,503.0,537.0,SEMIU,46,
+sdv-id-XkxkNA,Good,Yes,380576,14,104,,,Top Up,Others,Public Limited Company,M,Georgia,Changport,Committee Member,Secretary,,387.0,RURAL,10,13892706.72318314
+sdv-id-zChfXP,Good,No,1360625,14,85,12958379.83888149,Bank Credits,Fresh,Unsecured,Trust,N,Connecticut,,Director,President,653.0,,URBAN,29,302577.4709659557
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ what is the data about
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:49:45 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+# Variable `dfs: list[pd.DataFrame]` is already declared.
+
+# Extract the first dataframe from the list
+df = dfs[0]
+
+# Analyze the data to determine what it is about
+columns = df.columns.tolist()
+description = (
+    "The dataset contains information about loans, including loan IDs, "
+    "loan performance (Good/Bad), whether the loan defaulted during the COVID period, "
+    "recommended loan amounts, interest rates, tenors, collateral values, and other details "
+    "such as applicant location, income, and co-borrower information. It appears to be a dataset "
+    "used for analyzing loan performance and characteristics."
+)
+
+# Declare the result variable
+result = {
+    "type": "string",
+    "value": description
+}
+            ```
+            
+2025-06-08 17:49:45 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:49:45 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:49:45 [INFO] 
+Code running:
+```
+df = dfs[0]
+columns = df.columns.tolist()
+description = 'The dataset contains information about loans, including loan IDs, loan performance (Good/Bad), whether the loan defaulted during the COVID period, recommended loan amounts, interest rates, tenors, collateral values, and other details such as applicant location, income, and co-borrower information. It appears to be a dataset used for analyzing loan performance and characteristics.'
+result = {'type': 'string', 'value': description}
+        ```
+2025-06-08 17:49:45 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:49:45 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:49:45 [INFO] Answer: {'type': 'string', 'value': 'The dataset contains information about loans, including loan IDs, loan performance (Good/Bad), whether the loan defaulted during the COVID period, recommended loan amounts, interest rates, tenors, collateral values, and other details such as applicant location, income, and co-borrower information. It appears to be a dataset used for analyzing loan performance and characteristics.'}
+2025-06-08 17:49:45 [INFO] Executing Step 8: ResultParsing
+2025-06-08 17:51:25 [INFO] Question: What is the data about
+2025-06-08 17:51:25 [INFO] Running PandasAI with azure-openai LLM...
+2025-06-08 17:51:25 [INFO] Prompt ID: a304f6d0-0ef5-43e6-b0e4-78022f2cdcbd
+2025-06-08 17:51:25 [INFO] Executing Pipeline: GenerateChatPipeline
+2025-06-08 17:51:25 [INFO] Executing Step 0: ValidatePipelineInput
+2025-06-08 17:51:25 [INFO] Executing Step 1: CacheLookup
+2025-06-08 17:51:25 [INFO] Executing Step 2: PromptGeneration
+2025-06-08 17:51:25 [INFO] Using prompt: <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-PYCJMj,Bad,No,16538,14,75,12383408.33544405,Finance Ledgers,Top Up,Unsecured,Society,O,New Mexico,Robertfurt,,President,780.0,73.0,RURAL,61,29344965.24179843
+sdv-id-mHQxFs,Bad,No,5898989,14,15,42561658.11802195,,Fresh,Others,Private Limited Company,j,Louisiana,South Rhondaview,Managing Trustee,Director,791.0,354.0,URBAN,44,
+sdv-id-tIInxg,Good,Yes,3309369,14,126,,Average Bank Balance,Fresh,Secured,Individual,c,Montana,,Member,,,,SEMIU,7,8287180.94149015
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ What is the data about
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+2025-06-08 17:51:25 [INFO] Executing Step 3: CodeGenerator
+2025-06-08 17:51:31 [INFO] HTTP Request: POST https://yasha-mbm6j5sc-eastus2.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-12-01-preview "HTTP/1.1 200 OK"
+2025-06-08 17:51:31 [INFO] Prompt used:
+            <dataframe>
+dfs[0]:6000x21
+LOAN IDS,GOOD/BAD LOAN,COVID_PERIOD(DEFAULT),RECOMENDED_LOAN_AMT,INTEREST_RATE,TENOR,TOTAL_COLLATERAL_VALUE,REC_BASIS,FRESH_TOPUP,PRODUCT,CONSTITUTION,SOURCE_BRANCH,APPLICANT_STATE,APPLICANT_CITY,COBORROWER1_DESIGNATION,COBORROWER2_DESIGNATION,COBORROWER1_CIBILSCORE,COBORROWER2_CIBILSCORE,LOCALITY,YEARS OF OPERATION,TOTAL_INCOME
+sdv-id-PYCJMj,Bad,No,16538,14,75,12383408.33544405,Finance Ledgers,Top Up,Unsecured,Society,O,New Mexico,Robertfurt,,President,780.0,73.0,RURAL,61,29344965.24179843
+sdv-id-mHQxFs,Bad,No,5898989,14,15,42561658.11802195,,Fresh,Others,Private Limited Company,j,Louisiana,South Rhondaview,Managing Trustee,Director,791.0,354.0,URBAN,44,
+sdv-id-tIInxg,Good,Yes,3309369,14,126,,Average Bank Balance,Fresh,Secured,Individual,c,Montana,,Member,,,,SEMIU,7,8287180.94149015
+</dataframe>
+
+
+
+
+Update this initial code:
+```python
+# TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+```
+
+
+
+### QUERY
+ What is the data about
+
+Variable `dfs: list[pd.DataFrame]` is already declared.
+
+At the end, declare "result" variable as a dictionary of type and value.
+
+If you are asked to plot a chart, use "matplotlib" for charts, save as png.
+
+
+Generate python code and return full updated code:
+            
+2025-06-08 17:51:31 [INFO] Code generated:
+            ```
+            # TODO: import the required dependencies
+import pandas as pd
+
+# Write code here
+
+# Declare result var: 
+# type (possible values "string", "number", "dataframe", "plot"). Examples: { "type": "string", "value": f"The highest salary is {highest_salary}." } or { "type": "number", "value": 125 } or { "type": "dataframe", "value": pd.DataFrame({...}) } or { "type": "plot", "value": "temp_chart.png" }
+
+# Importing matplotlib for plotting
+import matplotlib.pyplot as plt
+
+# Data about loans
+dfs = [
+    pd.DataFrame({
+        "LOAN IDS": ["sdv-id-PYCJMj", "sdv-id-mHQxFs", "sdv-id-tIInxg"],
+        "GOOD/BAD LOAN": ["Bad", "Bad", "Good"],
+        "COVID_PERIOD(DEFAULT)": ["No", "No", "Yes"],
+        "RECOMENDED_LOAN_AMT": [16538, 5898989, 3309369],
+        "INTEREST_RATE": [14, 14, 14],
+        "TENOR": [75, 15, 126],
+        "TOTAL_COLLATERAL_VALUE": [12383408.33544405, 42561658.11802195, None],
+        "REC_BASIS": ["Finance Ledgers", None, "Average Bank Balance"],
+        "FRESH_TOPUP": ["Top Up", "Fresh", "Fresh"],
+        "PRODUCT": ["Unsecured", "Others", "Secured"],
+        "CONSTITUTION": ["Society", "Private Limited Company", "Individual"],
+        "SOURCE_BRANCH": ["O", "j", "c"],
+        "APPLICANT_STATE": ["New Mexico", "Louisiana", "Montana"],
+        "APPLICANT_CITY": ["Robertfurt", "South Rhondaview", None],
+        "COBORROWER1_DESIGNATION": [None, "Managing Trustee", "Member"],
+        "COBORROWER2_DESIGNATION": ["President", "Director", None],
+        "COBORROWER1_CIBILSCORE": [780.0, 791.0, None],
+        "COBORROWER2_CIBILSCORE": [73.0, 354.0, None],
+        "LOCALITY": ["RURAL", "URBAN", "SEMIU"],
+        "YEARS OF OPERATION": [61, 44, 7],
+        "TOTAL_INCOME": [29344965.24179843, None, 8287180.94149015]
+    })
+]
+
+# Extracting the dataframe from the list
+df = dfs[0]
+
+# Analyzing the data
+data_description = """
+The dataset contains information about loans, including loan IDs, whether the loan is good or bad, 
+whether it defaulted during the COVID period, recommended loan amounts, interest rates, tenors, 
+collateral values, and other details such as applicant state, city, locality, years of operation, 
+and total income. It also includes information about co-borrowers and their designations and CIBIL scores.
+"""
+
+# Declaring the result variable
+result = {
+    "type": "string",
+    "value": data_description
+}
+            ```
+            
+2025-06-08 17:51:31 [INFO] Executing Step 4: CachePopulation
+2025-06-08 17:51:31 [INFO] Executing Step 5: CodeCleaning
+2025-06-08 17:51:31 [INFO] Saving charts to C:\Users\yasha\OneDrive\Desktop\Prompt-Based-Data-Analysis-and-Visualization-Chatbot-for-CSV-Data-main\exports\charts\temp_chart.png
+2025-06-08 17:51:31 [INFO] 
+Code running:
+```
+df = dfs[0]
+data_description = """
+The dataset contains information about loans, including loan IDs, whether the loan is good or bad, 
+whether it defaulted during the COVID period, recommended loan amounts, interest rates, tenors, 
+collateral values, and other details such as applicant state, city, locality, years of operation, 
+and total income. It also includes information about co-borrowers and their designations and CIBIL scores.
+"""
+result = {'type': 'string', 'value': data_description}
+        ```
+2025-06-08 17:51:31 [INFO] Executing Step 6: CodeExecution
+2025-06-08 17:51:31 [INFO] Executing Step 7: ResultValidation
+2025-06-08 17:51:31 [INFO] Answer: {'type': 'string', 'value': '\nThe dataset contains information about loans, including loan IDs, whether the loan is good or bad, \nwhether it defaulted during the COVID period, recommended loan amounts, interest rates, tenors, \ncollateral values, and other details such as applicant state, city, locality, years of operation, \nand total income. It also includes information about co-borrowers and their designations and CIBIL scores.\n'}
+2025-06-08 17:51:31 [INFO] Executing Step 8: ResultParsing

@@ -1,0 +1,4 @@
+pandas==2.3.0
+pandasai==2.3.0
+python-dotenv==1.1.0
+streamlit==1.45.1
